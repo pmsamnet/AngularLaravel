@@ -1,0 +1,81 @@
+<div class="admin-container">
+  <div class="content-container">
+
+    <!------------- Post comment show ------------>
+
+    <div class="row justify-content-center">
+      <div class="col-md-8">
+          <div class="card">
+              <div class="card-body" *ngIf="postdetails">
+                  <h3 class="text-center text-success">Post Details</h3>
+                  <br/>
+                  <h2>{{postdetails.title}}</h2>
+                  <p>
+                    {{postdetails.body}}
+                  </p>
+                  <hr />
+                
+                  <div *ngIf="postdetails.comments?.length">
+                  <h4>Display Comments</h4>
+
+                  <!-- command design Start -->
+                  <div class="display-comment" *ngFor="let comment of postdetails.comments; let i = index">
+                    <strong>{{comment.user.name}}</strong>
+                    <p>{{comment.body}}</p>
+                    <a href="" id="reply"></a>
+                    <form method="post"  #commentReplay="ngForm" (ngSubmit) = "replay(commentReplay.value)">
+                      
+                        <div class="form-group">
+                            <input type="text" name="body" class="form-control"  ngModel />
+                            <input type="hidden" name="post_id" value="{{comment.post_id}}" ngModel />
+                            <input type="hidden" name="parent_id" value="{{comment.parent_id}}" ngModel />
+                        </div>
+                        <div class="form-group">
+                            <input type="submit" class="btn btn-warning" value="Reply" />
+                        </div>
+                    </form>
+                   <!-- comment replay start -->
+                    <div *ngIf="comment.replies.length">
+                   <div class="replay-comment" *ngFor="let reply of comment.replies; let j = index">
+                    <strong>{{comment.user.name}}</strong>
+                    <p>{{reply.body}}</p>
+                    <a href="" id="reply"></a>
+                    <form method="post" action="">
+                       
+                        <div class="form-group">
+                            <input type="text" name="body" class="form-control" [(ngModel)]="repliesReplay.body"/>
+                            <input type="hidden" name="post_id" value="{{reply.post_id}}" [(ngModel)]="repliesReplay.post_id" />
+                            <input type="hidden" name="parent_id" value="{{reply.parent_id}}" [(ngModel)]="repliesReplay.parent_id"/>
+                        </div>
+                        <div class="form-group">
+                            <input type="submit" class="btn btn-warning" value="Reply" />
+                        </div>
+                    </form>
+                    
+                   </div>
+                  </div>
+                   <!-- comment replay End -->
+                </div>
+                  <!-- command design End -->
+                </div>
+                  <hr />
+                  <h4>Add comment</h4>
+                  <form  #replayPost="ngForm" (ngSubmit)="replayPost()">
+               
+                      <div class="form-group">
+                          <textarea class="form-control" name="body"  [(ngModel)]="replayPostComment.body"></textarea>
+                          <input type="hidden" name="post_id" value="{{replayPostComment.id}}" #post_id="ngModel" [(ngModel)]="replayPostComment.post_id" />
+                      </div>
+                      <div class="form-group">
+                          <input type="button"  (click)="test();" class="btn btn-success" value="Add Comment" />
+                      </div>
+                  </form>
+              </div>
+          </div>
+      </div>
+  </div>
+  <!------------- Post comment show ------------>
+
+
+</div>
+</div>

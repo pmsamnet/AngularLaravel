@@ -1,0 +1,47 @@
+.admin-header{
+    background: #fff;
+    position: fixed;
+    top: 0;
+    z-index: 1028;
+    width: 100%;
+    display: block;
+    -webkit-box-shadow: 0 2px 4px 0 rgba(43,43,43,0.1);
+    box-shadow: 0 2px 4px 0 rgba(43,43,43,0.1);
+    padding:15px 20px;
+}
+
+
+
+
+
+.h-logo{
+    width:100%;
+    display:block;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size:20px;
+    font-weight:bold;
+    text-transform: uppercase;
+}
+
+
+.admin-container{
+    display: block;
+    position: relative;
+    background: #f2f7fb;
+    min-height: calc(100vh - 70px);
+}
+
+.admin-header ul li{
+    display:inline;
+    padding:5px 5px;
+}
+
+.author{
+    text-transform: capitalize;
+}
+
+.dropdown-menu{
+    right:0;
+    left:auto !important;
+    padding:5px;
+}

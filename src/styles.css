@@ -1,0 +1,25 @@
+/* You can add global styles to this file, and also import other style files */
+.admin-container{
+    display: block;
+    position: relative;
+    background: #f2f7fb;
+    min-height: calc(100vh - 60px);
+    margin-top:63px;
+    padding:30px;
+    margin:63px auto auto auto;
+    
+
+}
+
+.content-container{
+    max-width:980px;
+    padding:20px;
+    background-color: #fff;
+    margin:auto;
+    border-radius:10px;
+    box-shadow: 0 2px 4px 0 rgba(43,43,43,0.1);
+}
+
+table th{
+    background-color:#eaeff5;
+}
